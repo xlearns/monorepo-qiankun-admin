@@ -1,0 +1,45 @@
+.ant-pro-setting-drawer-handle{    
+    position: absolute;
+    top: 240px;
+    right: 300px;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
+    text-align: center;
+    background-color: var(--my-color);
+    border-radius: 4px 0 0 4px;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.ant-pro-setting-drawer{
+    &-h1{
+        font-size: 16px;
+        font-family: "MicrosoftYaHei-Bold, MicrosoftYaHei";
+        font-weight: bold;
+        color: #333333;
+    }
+    span:first-child{
+        display: block;
+        background-color: var(--my-color);
+        border-radius: 50%;
+        width: 6px;
+        height: 6px;
+    }
+    &-box{
+        margin:20px 0;
+    }
+    &-box:nth-of-type(2){
+        margin: 40px 0;
+    }
+    &-line{
+        width: 274px;
+        height: 1px;
+        border: 1px solid #E8E8E8;
+    }
+    
+}
