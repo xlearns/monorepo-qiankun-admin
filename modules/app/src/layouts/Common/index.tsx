@@ -56,6 +56,18 @@ export default function CommonLayout() {
   const { account } = useAccount()
   const configs = useRoutesConfig()
   const [collapsed, setCollapsed] = useState(false)
+  const handleClick = () => {
+    setCollapsed(!collapsed)
+  }
+
+  const handleSize = () => {
+    if (!size) return
+    if (size.width <= 760) {
+      setCollapsed(true)
+    } else if (size.width > 760) {
+      setCollapsed(false)
+    }
+  }
   const menuConfig = useMemo(() => {
     const targetConfig = configs.find((item: any) => {
       return item?.element?.type?.displayName === 'CommonLayout'
@@ -67,14 +79,8 @@ export default function CommonLayout() {
   // @ts-ignore
   window.navigate = navigate
   useEffect(() => {
-    // 点击的时候不要触发这里
-    if (!size) return
-    if (size.width <= 760) {
-      setCollapsed(true)
-    } else if (size.width > 760) {
-      setCollapsed(false)
-    }
-  })
+    handleSize()
+  }, [size])
   const { pathname } = location
   return (
     <div className="common-layout-wrapper" ref={ref}>
@@ -114,9 +120,7 @@ export default function CommonLayout() {
                 collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
                 {
                   className: 'trigger',
-                  onClick: () => {
-                    setCollapsed(!collapsed)
-                  },
+                  onClick: () => handleClick(),
                 }
               )}
               <Space
