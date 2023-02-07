@@ -1,22 +1,22 @@
 const fs = require('fs')
 const path = require('path')
-const { argv } = require('yargs')
+const arguments = process.argv.splice(2)
+const cwd = process.cwd()
+//第一个参数为文件名、第二个为模板
+const names = arguments[0]
+const template = arguments[1] || 'micro-vue-vite' // ['micro-vue-vite','micro-rect-vite']
 
 const PkgGenerator = require('./generators/PkgGenerator')
 
 const br = `
 `
-if (!argv.name) {
+if (!names) {
   console.log('请使用 --name=XXX 参数提供模块名')
   process.exit(0)
 }
 
-const cwd = process.cwd()
-const names = argv.name.split(',')
-const template = argv.template || 'micro-react-vite'
-
 async function create(name) {
-  if (argv.force || !fs.existsSync(path.join(cwd, `./modules/${name}`))) {
+  if (!fs.existsSync(path.join(cwd, `./modules/${name}`))) {
     await new PkgGenerator({
       name,
       cwd,
@@ -28,7 +28,7 @@ async function create(name) {
 }
 
 async function run() {
-  await Promise.all(names.map(create))
+  await create(names)
 }
 
 run()
