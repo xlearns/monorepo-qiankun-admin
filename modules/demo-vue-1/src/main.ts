@@ -3,7 +3,7 @@ import {
   renderWithQiankun,
   qiankunWindow,
 } from 'vite-plugin-qiankun/dist/helper'
-
+import router from './router'
 import App from './App.vue'
 import './index.scss'
 
@@ -16,6 +16,7 @@ let app: any
 async function start(props: any = {}) {
   const { container } = props
   app = createApp(App)
+  app.use(router)
   app.mount(
     container
       ? container.querySelector(`#${appName}-app`)

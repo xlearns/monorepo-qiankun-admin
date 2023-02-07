@@ -8,8 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "vite-plugin-qiankun": "^1.0.14",
     "vue": "^3.2.33",
-    "vite-plugin-qiankun": "^1.0.14"
+    "vue-router": "^4.1.6"
   },
   "devDependencies": {
     "@packages/build": "^0.0.1",

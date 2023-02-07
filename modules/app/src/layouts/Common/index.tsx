@@ -36,6 +36,8 @@ import {
 import useRoutesConfig from '@/routes/config'
 import useAppConfig from '@packages/shared/hooks/useAppConfig'
 import useAccount from '@packages/shared/hooks/useAccount'
+import { getPagePathList } from '@packages/shared/utils'
+import { handleConfig } from '@packages/shared/utils'
 
 import './style.scss'
 
@@ -49,22 +51,33 @@ const Loading = function () {
   )
 }
 
-export default function CommonLayout() {
+export default function CommonLayout(this: any) {
   const navigate = useNavigate()
   const ref = useRef(null)
   const size = useSize(ref)
   const { account } = useAccount()
   const configs = useRoutesConfig()
   const [collapsed, setCollapsed] = useState(false)
+  const [theme, setTheme] = useState('light') //['dark','light']
+
+  function init() {
+    const themeMenu = handleConfig(false, 'themeMenu') || 1
+    setTheme(themeMenu == 1 ? 'dark' : 'light')
+  }
+
+  function getValueFromSon(params: any) {
+    setTheme(params ? 'dark' : 'light')
+  }
+
   const handleClick = () => {
     setCollapsed(!collapsed)
   }
 
   const handleSize = () => {
     if (!size) return
-    if (size.width <= 760) {
+    if (size.width <= 1200) {
       setCollapsed(true)
-    } else if (size.width > 760) {
+    } else if (size.width > 1200) {
       setCollapsed(false)
     }
   }
@@ -78,33 +91,47 @@ export default function CommonLayout() {
 
   // @ts-ignore
   window.navigate = navigate
+
   useEffect(() => {
     handleSize()
   }, [size])
-  const { pathname } = location
+
+  useEffect(() => {
+    init()
+  }, [])
+
+  const { pathname, hash } = location
+
   return (
     <div className="common-layout-wrapper" ref={ref}>
       <Layout>
         <Sider
-          // width={280}
+          width={210}
           trigger={null}
           collapsible
           collapsed={collapsed}
+          defaultCollapsed={false}
           style={{
             overflowY: 'auto',
+            background: theme == 'light' ? '#fff' : '#001529', // ['#fff','#001529']
           }}
         >
-          <div className="logo">
-            <img src={'logo.png'} className="mr-[10px]" />
+          <div
+            className="logo"
+            style={{
+              color: theme == 'light' ? '#000' : '#fff',
+            }}
+          >
+            <img src={'/logo.png'} className="mr-[10px]" />
             xxxx
           </div>
           <Menu
-            theme="dark"
+            theme={theme as any}
             items={menuConfig}
-            defaultSelectedKeys={[pathname]}
-            mode="inline"
+            defaultSelectedKeys={[pathname + hash]}
+            defaultOpenKeys={getPagePathList(pathname + hash)}
+            mode="inline" //['inline,'vertical'']
             onSelect={(item) => {
-              // console.log(item)
               navigate(item?.key)
             }}
             onOpenChange={(item) => {
@@ -179,7 +206,7 @@ export default function CommonLayout() {
           </Content>
         </Layout>
       </Layout>
-      <Setting />
+      <Setting theme={theme} sendValue={getValueFromSon.bind(this)} />
     </div>
   )
 }

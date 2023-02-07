@@ -15,10 +15,10 @@
   }
 
   .logo {
-    padding:0 20px;
-    font-family: "MicrosoftYaHei-Bold, MicrosoftYaHei";
+    padding: 0 20px;
+    font-family: 'MicrosoftYaHei-Bold, MicrosoftYaHei';
     font-weight: bold;
-    color: #FFFFFF;
+    color: #ffffff;
     line-height: 60px;
     height: 60px;
     overflow: hidden;
@@ -58,7 +58,14 @@
     padding: 0 24px;
   }
 
-  .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected{
+  .ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal)
+    .ant-menu-item-selected {
     background-color: var(--my-color) !important;
+    color: #fff;
+  }
+
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: var(--my-bgcolor) !important;
+    color: var(--my-color);
   }
 }

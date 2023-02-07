@@ -8,6 +8,7 @@ import MicroApp from '@/components/MicroApp'
 import CommonLayout from '@/layouts/Common'
 import Home from '@/pages/home'
 import NoFound from '@/pages/404'
+import CusIcon from '@/components/CusIcon'
 
 import { Navigate } from 'react-router-dom'
 
@@ -26,22 +27,19 @@ export default function useRoutesConfig() {
               title: '首页',
               element: <Home />,
               menu: true,
+              icon: <CusIcon name={'Home'} />,
             },
-            // {
-            //   path: 'any',
-            //   title: '404 页',
-            //   element: <Navigate replace to={`/404`} />,
-            //   menu: true,
-            // },
             { path: '*', title: '404 页', element: <NoFound /> },
           ],
         },
         {
-          path: 'micro',
+          path: 'react',
+          title: 'demo-react-1',
+          icon: <CusIcon name={'Assets'} />,
           children: [
             {
               menu: true,
-              title: 'demo-react-1',
+              title: 'react-1',
               path: 'demo-react-1',
               element: (
                 <MicroApp
@@ -58,7 +56,30 @@ export default function useRoutesConfig() {
             },
             {
               menu: true,
-              title: 'demo-vue-1',
+              title: 'react-2',
+              path: 'demo-react-2',
+              element: (
+                <MicroApp
+                  name="demo-react-2"
+                  sandbox={{
+                    experimentalStyleIsolation: true,
+                  }}
+                  props={{
+                    account,
+                    locale,
+                  }}
+                />
+              ),
+            },
+          ],
+        },
+        {
+          path: 'vue',
+          title: 'vue-1',
+          icon: <CusIcon name={'Analysis'} />,
+          children: [
+            {
+              menu: false,
               path: 'demo-vue-1',
               element: (
                 <MicroApp
@@ -75,11 +96,11 @@ export default function useRoutesConfig() {
             },
             {
               menu: true,
-              title: 'demo-react-2',
-              path: 'demo-react-2',
+              title: 'vue-1-one',
+              path: 'demo-vue-1#/one',
               element: (
                 <MicroApp
-                  name="demo-react-2"
+                  name="demo-vue-1"
                   sandbox={{
                     experimentalStyleIsolation: true,
                   }}
@@ -92,7 +113,24 @@ export default function useRoutesConfig() {
             },
             {
               menu: true,
-              title: 'demo-vue-2',
+              title: 'vue-1-two',
+              path: 'demo-vue-1#/two',
+              element: (
+                <MicroApp
+                  name="demo-vue-1"
+                  sandbox={{
+                    experimentalStyleIsolation: true,
+                  }}
+                  props={{
+                    account,
+                    locale,
+                  }}
+                />
+              ),
+            },
+            {
+              menu: true,
+              title: 'vue-2',
               path: 'demo-vue-2',
               element: (
                 <MicroApp
@@ -122,5 +160,6 @@ export default function useRoutesConfig() {
       ],
     },
   ]
+
   return configs
 }

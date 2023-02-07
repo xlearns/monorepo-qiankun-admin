@@ -44,32 +44,50 @@ body {
 
 :root {
   --my-color: rgba(24, 144, 255, 1);
+  --my-bgcolor: rgba(24, 144, 255, 0.1);
 }
 
 [data-theme='rgba(23, 194, 193, 1)'] {
   --my-color: rgba(23, 194, 193, 1);
+  --my-bgcolor: rgba(23, 194, 193, 0.1);
 }
+
 [data-theme='rgba(48, 85, 235, 1)'] {
   --my-color: rgba(48, 85, 235, 1);
+  --my-bgcolor: rgba(48, 85, 235, 0.1);
 }
+
 [data-theme='rgba(83, 195, 27, 1)'] {
   --my-color: rgba(83, 195, 27, 1);
+  --my-bgcolor: rgba(83, 195, 27, 0.1);
 }
+
 [data-theme='rgba(114, 46, 209, 1)'] {
   --my-color: rgba(114, 46, 209, 1);
+  --my-bgcolor: rgba(114, 46, 209, 0.1);
 }
+
 [data-theme='rgba(24, 144, 255, 1)'] {
   --my-color: rgba(24, 144, 255, 1);
+  --my-bgcolor: rgba(24, 144, 255, 0.1);
 }
+
 [data-theme='rgba(245, 33, 45, 1)'] {
   --my-color: rgba(245, 33, 45, 1);
+  --my-bgcolor: rgba(245, 33, 45, 0.1);
 }
+
 [data-theme='rgba(250, 84, 28, 1)'] {
   --my-color: rgba(250, 84, 28, 1);
+  --my-bgcolor: rgba(250, 84, 28, 0.1);
 }
+
 [data-theme='rgba(251, 173, 20, 1)'] {
   --my-color: rgba(251, 173, 20, 1);
+  --my-bgcolor: rgba(251, 173, 20, 0.1);
 }
+
 [data-theme='rgba(254, 253, 3, 1)'] {
-  --my-color:rgba(254, 253, 3, 1);
+  --my-color: rgba(254, 253, 3, 1);
+  --my-bgcolor: rgba(254, 253, 3, 0.1);
 }

@@ -209,10 +209,12 @@ importers:
       vite: ^2.9.8
       vite-plugin-qiankun: ^1.0.14
       vue: ^3.2.33
+      vue-router: ^4.1.6
       vue-tsc: ^0.34.11
     dependencies:
       vite-plugin-qiankun: 1.0.14_typescript@4.6.4+vite@2.9.9
       vue: 3.2.33
+      vue-router: 4.1.6_vue@3.2.33
     devDependencies:
       '@packages/build': link:../../packages/build
       '@vitejs/plugin-vue': 2.3.3_vite@2.9.9+vue@3.2.33
@@ -864,6 +866,10 @@ packages:
     dependencies:
       '@vue/compiler-dom': 3.2.33
       '@vue/shared': 3.2.33
+
+  /@vue/devtools-api/6.5.0:
+    resolution: {integrity: sha512-o9KfBeaBmCKl10usN4crU53fYtC1r7jJwdGKjPT24t348rHxgfpZ0xL3Xm/gLUYnc0oTp8LAmrxOeLyu6tbk2Q==}
+    dev: false
 
   /@vue/reactivity-transform/3.2.33:
     resolution: {integrity: sha512-4UL5KOIvSQb254aqenW4q34qMXbfZcmEsV/yVidLUgvwYQQ/D21bGX3DlgPUGI3c4C+iOnNmDCkIxkILoX/Pyw==}
@@ -3616,6 +3622,15 @@ packages:
   /void-elements/3.1.0:
     resolution: {integrity: sha1-YU9/v42AHwu18GYfWy9XhXUOTwk=}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /vue-router/4.1.6_vue@3.2.33:
+    resolution: {integrity: sha512-DYWYwsG6xNPmLq/FmZn8Ip+qrhFEzA14EI12MsMgVxvHFDYvlr4NXpVF5hrRH1wVcDP8fGi5F4rxuJSl8/r+EQ==}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@vue/devtools-api': 6.5.0
+      vue: 3.2.33
     dev: false
 
   /vue-tsc/0.34.15_typescript@4.6.4:
