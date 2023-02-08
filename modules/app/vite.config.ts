@@ -17,6 +17,7 @@ export default defineConfig(
         '/demo-react-2': 'http://localhost:8082/',
         '/demo-vue-1': 'http://localhost:8083/',
         '/demo-vue-2': 'http://localhost:8084/',
+        '/demo-solid-1': 'http://localhost:8085/',
       },
     },
   } as UserConfig)

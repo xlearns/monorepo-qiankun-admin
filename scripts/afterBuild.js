@@ -31,6 +31,7 @@ const microModules = {
   'demo-react-2': 'dist',
   'demo-vue-1': 'dist',
   'demo-vue-2': 'dist',
+  'demo-solid-1': 'dist',
 }
 
 Object.entries(microModules).forEach(([name, distDir]) => {

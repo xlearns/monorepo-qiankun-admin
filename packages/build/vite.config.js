@@ -5,6 +5,8 @@ const { default: react } = require('@vitejs/plugin-react')
 const { default: vue } = require('@vitejs/plugin-vue')
 const { default: vitePluginImp } = require('vite-plugin-imp')
 // const LessNodeModules = require('less-plugin-import-node-modules')
+const solid = require('vite-plugin-solid')
+
 const nodeIP = require('ip')
 const ip = nodeIP.address()
 
@@ -38,6 +40,7 @@ const getConfig = ({
         ],
       }),
     ],
+    solid:[solid()]
   }[type]
 
   const sharedViteConfig = {

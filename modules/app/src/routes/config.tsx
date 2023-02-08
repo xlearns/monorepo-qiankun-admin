@@ -33,6 +33,28 @@ export default function useRoutesConfig() {
           ],
         },
         {
+          children: [
+            {
+              path: 'solid',
+              title: 'demo-solid-1',
+              menu: true,
+              icon: <CusIcon name={'Home'} />,
+              element:(
+                <MicroApp
+                  name="demo-solid-1"
+                  sandbox={{
+                    experimentalStyleIsolation: true,
+                  }}
+                  props={{
+                    account,
+                    locale,
+                  }}
+                />
+              ),
+            },
+          ],
+        },
+        {
           path: 'react',
           title: 'demo-react-1',
           icon: <CusIcon name={'Assets'} />,
