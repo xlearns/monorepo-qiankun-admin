@@ -46,5 +46,7 @@ renderWithQiankun({
 
 // @ts-ignore
 if (!window.__POWERED_BY_QIANKUN__) {
+  // 子模块独立运行加载默认css
+  import('./independent.scss')
   start()
 }

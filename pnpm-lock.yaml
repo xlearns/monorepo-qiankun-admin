@@ -275,6 +275,25 @@ importers:
       vite: 2.9.9_less@4.1.2+sass@1.51.0
       vue-tsc: 0.34.15_typescript@4.6.4
 
+  modules/test:
+    specifiers:
+      '@packages/assets': workspace:^0.0.1
+      '@packages/build': workspace:^0.0.1
+      '@packages/shared': workspace:^0.0.1
+      solid-js: ^1.6.10
+      vite: ^4.1.1
+      vite-plugin-qiankun: ^1.0.14
+      vite-plugin-solid: ^2.5.0
+    dependencies:
+      '@packages/assets': link:../../packages/assets
+      '@packages/shared': link:../../packages/shared
+      solid-js: 1.6.10
+      vite-plugin-qiankun: 1.0.14_vite@4.1.1
+    devDependencies:
+      '@packages/build': link:../../packages/build
+      vite: 4.1.1
+      vite-plugin-solid: 2.5.0_solid-js@1.6.10+vite@4.1.1
+
   packages/assets:
     specifiers: {}
 
