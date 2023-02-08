@@ -4,8 +4,9 @@ const qiankun = require('vite-plugin-qiankun')
 const { default: react } = require('@vitejs/plugin-react')
 const { default: vue } = require('@vitejs/plugin-vue')
 const { default: vitePluginImp } = require('vite-plugin-imp')
-// const LessNodeModules = require('less-plugin-import-node-modules')
+const { svelte } = require('@sveltejs/vite-plugin-svelte')
 const solid = require('vite-plugin-solid')
+// const LessNodeModules = require('less-plugin-import-node-modules')
 
 const nodeIP = require('ip')
 const ip = nodeIP.address()
@@ -40,7 +41,8 @@ const getConfig = ({
         ],
       }),
     ],
-    solid:[solid()]
+    svelte: [svelte()],
+    solid: [solid()],
   }[type]
 
   const sharedViteConfig = {

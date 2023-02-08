@@ -18,6 +18,7 @@ export default defineConfig(
         '/demo-vue-1': 'http://localhost:8083/',
         '/demo-vue-2': 'http://localhost:8084/',
         '/demo-solid-1': 'http://localhost:8085/',
+        '/demo-svelte-1': "http://localhost:8086/"
       },
     },
   } as UserConfig)

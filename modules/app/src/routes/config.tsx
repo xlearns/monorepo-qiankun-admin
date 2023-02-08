@@ -36,12 +36,30 @@ export default function useRoutesConfig() {
           children: [
             {
               path: 'solid',
-              title: 'demo-solid-1',
+              title: 'Solid-js',
               menu: true,
               icon: <CusIcon name={'Home'} />,
-              element:(
+              element: (
                 <MicroApp
                   name="demo-solid-1"
+                  sandbox={{
+                    experimentalStyleIsolation: true,
+                  }}
+                  props={{
+                    account,
+                    locale,
+                  }}
+                />
+              ),
+            },
+            {
+              path: 'svelte',
+              title: 'Svelte',
+              menu: true,
+              icon: <CusIcon name={'Home'} />,
+              element: (
+                <MicroApp
+                  name="demo-svelte-1"
                   sandbox={{
                     experimentalStyleIsolation: true,
                   }}
@@ -56,7 +74,7 @@ export default function useRoutesConfig() {
         },
         {
           path: 'react',
-          title: 'demo-react-1',
+          title: 'React',
           icon: <CusIcon name={'Assets'} />,
           children: [
             {
@@ -97,7 +115,7 @@ export default function useRoutesConfig() {
         },
         {
           path: 'vue',
-          title: 'vue-1',
+          title: 'Vue',
           icon: <CusIcon name={'Analysis'} />,
           children: [
             {
@@ -148,14 +166,14 @@ export default function useRoutesConfig() {
                     locale,
                   }}
                 />
-              )
+              ),
             },
             {
               menu: true,
               title: '二级菜单',
               path: 'demo-vue-1',
               // element:(<Navigate to="vue/demo-vue-1/react-3-1" />),
-              children:[
+              children: [
                 {
                   menu: true,
                   title: '三级菜单1',
@@ -190,8 +208,8 @@ export default function useRoutesConfig() {
                     />
                   ),
                 },
-              ]
-            }
+              ],
+            },
           ],
         },
       ],
