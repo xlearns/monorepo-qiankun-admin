@@ -1,18 +1,30 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import actions from "@/components/Actions";
 
 export default function Home() {
-  const [count, setCount] = useState(0)
+  const [num, setNum] = useState<string>()
+  function change() {
+    actions.setGlobalState({ num: `父组件发出消息: ${Math.random()}` });
+  }
+
+  function init() {
+  }
+
+  useEffect(() => {
+    actions.onGlobalStateChange((state, prevState) => {
+      console.log("主应用观察者：token 改变前的值为 ", prevState);
+      console.log("主应用观察者：登录状态发生改变，改变后的 token 的值为 ", state);
+      setNum(state.num)
+    }, true)
+
+    init()
+  }, [])
+
 
   return (
     <div>
       <div>Home</div>
-      <div>count: {count}</div>
-      <button
-        className="py-2 px-3 text-white rounded-sm bg-slate-500 hover:bg-slate-600 active:bg-slate-700 focus:outline-none focus:ring focus:ring-slate-300"
-        onClick={() => setCount(count + 1)}
-      >
-        +
-      </button>
+      <button onClick={change} >change {num}</button>
     </div>
   )
 }

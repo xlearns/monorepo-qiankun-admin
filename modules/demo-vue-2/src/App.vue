@@ -1,13 +1,26 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import actions from '@/components/actions'
+import { onMounted, ref } from 'vue'
+
+const state = ref('')
+onMounted(() => {
+  actions.onGlobalStateChange((_state: any) => {
+    console.log('全局state:', _state)
+    state.value = _state
+  }, true)
+})
+
+function change() {
+  actions.setGlobalState({ num: `子组件发出消息: ${Math.random()}` })
+}
 </script>
 
 <template>
-  <div className="space-y-5 text-center">
-    <div>demo-vue-2</div>
-    <img className="inline" alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <div>
+    <h1>demo-vue-2</h1>
+    <button @click="change">change</button>
   </div>
+  <div>state:{{ state }}</div>
 </template>
+
+<style scoped></style>

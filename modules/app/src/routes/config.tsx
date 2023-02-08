@@ -175,7 +175,7 @@ export default function useRoutesConfig() {
                 },
                 {
                   menu: true,
-                  title: '三级菜单2',
+                  title: '组件通信',
                   path: 'vue-3-2',
                   element: (
                     <MicroApp

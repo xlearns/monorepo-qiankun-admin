@@ -6,6 +6,7 @@ import {
 
 import App from './App.vue'
 import './index.scss'
+import actions from '@/components/actions'
 
 const appName = 'demo-vue-2'
 
@@ -14,6 +15,9 @@ window.__POWERED_BY_QIANKUN__ = qiankunWindow.__POWERED_BY_QIANKUN__
 
 let app: any
 async function start(props: any = {}) {
+  if (props) {
+    actions.setActions(props)
+  }
   const { container } = props
   app = createApp(App)
   app.mount(
