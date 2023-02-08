@@ -113,7 +113,7 @@ export default function useRoutesConfig() {
             },
             {
               menu: true,
-              title: 'vue-1-two',
+              title: 'vue-2one',
               path: 'demo-vue-1#/two',
               element: (
                 <MicroApp
@@ -126,25 +126,50 @@ export default function useRoutesConfig() {
                     locale,
                   }}
                 />
-              ),
+              )
             },
             {
               menu: true,
-              title: 'vue-2',
-              path: 'demo-vue-2',
-              element: (
-                <MicroApp
-                  name="demo-vue-2"
-                  sandbox={{
-                    experimentalStyleIsolation: true,
-                  }}
-                  props={{
-                    account,
-                    locale,
-                  }}
-                />
-              ),
-            },
+              title: '二级菜单',
+              path: 'demo-vue-1',
+              // element:(<Navigate to="vue/demo-vue-1/react-3-1" />),
+              children:[
+                {
+                  menu: true,
+                  title: '三级菜单1',
+                  path: 'react-3-1',
+                  element: (
+                    <MicroApp
+                      name="demo-react-2"
+                      sandbox={{
+                        experimentalStyleIsolation: true,
+                      }}
+                      props={{
+                        account,
+                        locale,
+                      }}
+                    />
+                  ),
+                },
+                {
+                  menu: true,
+                  title: '三级菜单2',
+                  path: 'vue-3-2',
+                  element: (
+                    <MicroApp
+                      name="demo-vue-2"
+                      sandbox={{
+                        experimentalStyleIsolation: true,
+                      }}
+                      props={{
+                        account,
+                        locale,
+                      }}
+                    />
+                  ),
+                },
+              ]
+            }
           ],
         },
       ],
