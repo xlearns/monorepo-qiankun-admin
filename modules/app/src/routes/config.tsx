@@ -153,8 +153,25 @@ export default function useRoutesConfig() {
             },
             {
               menu: true,
-              title: 'vue-2one',
+              title: 'vue-1-one',
               path: 'demo-vue-1#/two',
+              element: (
+                <MicroApp
+                  name="demo-vue-1"
+                  sandbox={{
+                    experimentalStyleIsolation: true,
+                  }}
+                  props={{
+                    account,
+                    locale,
+                  }}
+                />
+              ),
+            },
+            {
+              menu: true,
+              title: 'vue-1-home',
+              path: 'demo-vue-1#/home',
               element: (
                 <MicroApp
                   name="demo-vue-1"

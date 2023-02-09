@@ -6,6 +6,8 @@ import {
 import router from './router'
 import App from './App.vue'
 import './index.scss'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 
 const appName = 'demo-vue-1'
 
@@ -17,6 +19,7 @@ async function start(props: any = {}) {
   const { container } = props
   app = createApp(App)
   app.use(router)
+  app.use(ElementPlus)
   app.mount(
     container
       ? container.querySelector(`#${appName}-app`)

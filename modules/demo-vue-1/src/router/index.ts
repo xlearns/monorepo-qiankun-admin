@@ -12,6 +12,7 @@ const routes = [
   { path: '/', redirect: '/one' },
   { path: '/one', component: One, title: 'One' },
   { path: '/two', component: Two, title: 'Two' },
+  { path: '/home', component: Home, title: 'One' },
   { path: '/:pathMatch(.*)*', title: '404', component: NoFound },
 ]
 
