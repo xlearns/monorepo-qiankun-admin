@@ -112,7 +112,7 @@ export default function CommonLayout(this: any) {
           collapsed={collapsed}
           defaultCollapsed={false}
           style={{
-            overflowY: 'auto',
+            overflowY: 'hidden',
             background: theme == 'light' ? '#fff' : '#001529', // ['#fff','#001529']
           }}
         >
@@ -125,6 +125,12 @@ export default function CommonLayout(this: any) {
             <img src={'/logo.png'} className="mr-[10px]" />
             xxxx
           </div>
+          <div
+            style={{
+              overflowY: "auto",
+              height: "calc(100% - 60px)",
+            }}
+          >
           <Menu
             theme={theme as any}
             items={menuConfig}
@@ -139,6 +145,7 @@ export default function CommonLayout(this: any) {
               // navigate(item?.key)
             }}
           />
+          </div>
         </Sider>
         <Layout>
           <Header className="common-layout-header" style={{ padding: 0 }}>

@@ -1,0 +1,16 @@
+{
+	"react17": {
+		"prefix": "React17.x",
+		"body": [
+			"import React, { useState,useEffect } from 'react'\n",
+			"import { Button, Space } from 'antd'\n",
+			"export default function() {",
+			"\t useEffect(()=>{},[])\n",
+			"\t const [count, setCount] = useState(0)\n",
+			"\t return (<Button>Default Button</Button>)",
+			"}\n",
+			"$2"
+		],
+		"description": "React17.x"
+	}
+}
