@@ -1,0 +1,3 @@
+- [ ] svelte script template
+- [ ] qwik template
+- [ ] astro template
