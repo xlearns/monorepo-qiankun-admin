@@ -28,8 +28,10 @@ function Routes() {
   )
 }
 
-export default () => (
-  <HashRouter>
-    <Routes />
-  </HashRouter>
-)
+export default function Router() {
+  return (
+    <HashRouter>
+      <Routes />
+    </HashRouter>
+  )
+}
